@@ -1,25 +1,24 @@
 #include <iostream>
 #include <math.h>
-#include <conio.h>
 
 using namespace std;
 
 void welcome()
 {
-	cout << "Êàëüêóëÿòîð Ìåòàëëà\n\n";
+	cout << "ÐšÐ°Ð»ÑŒÐºÑƒÐ»ÑÑ‚Ð¾Ñ€ ÐœÐµÑ‚Ð°Ð»Ð»Ð°\n\n";
 }
 
 int metalType()
 {
 	bool typesel = true;
 
-	cout << "Âûáåðèòå òèï ìåòàëëà: \n"
-		<< "1. ×åðíàÿ ñòàëü \n"
-		<< "2. Íåðæàâåþùàÿ ñòàëü \n"
-		<< "3. Àëþìèíèé\n"
-		<< "4. ×åðíàÿ ñòàëü (ïî AJAN)\n"
-		<< "5. Ââåñòè çíà÷åíèå âðó÷íóþ.\n\n"
-		<< "Âàø âûáîð: ";
+	cout << "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ñ‚Ð¸Ð¿ Ð¼ÐµÑ‚Ð°Ð»Ð»Ð°: \n"
+		<< "1. Ð§ÐµÑ€Ð½Ð°Ñ ÑÑ‚Ð°Ð»ÑŒ \n"
+		<< "2. ÐÐµÑ€Ð¶Ð°Ð²ÐµÑŽÑ‰Ð°Ñ ÑÑ‚Ð°Ð»ÑŒ \n"
+		<< "3. ÐÐ»ÑŽÐ¼Ð¸Ð½Ð¸Ð¹\n"
+		<< "4. Ð§ÐµÑ€Ð½Ð°Ñ ÑÑ‚Ð°Ð»ÑŒ (Ð¿Ð¾ AJAN)\n"
+		<< "5. Ð’Ð²ÐµÑÑ‚Ð¸ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð²Ñ€ÑƒÑ‡Ð½ÑƒÑŽ.\n\n"
+		<< "Ð’Ð°Ñˆ Ð²Ñ‹Ð±Ð¾Ñ€: ";
 
 	int t;
 	int maxMenuIndex = 5;
@@ -35,14 +34,14 @@ int metalType()
 		}
 		else
 		{
-			cout << "Íè÷åãî íå âûáðàíî! " 
-				 << "Âûáåðèòå òèï ìåòàëëà èç ñïèñêà!\n";
+			cout << "ÐÐ¸Ñ‡ÐµÐ³Ð¾ Ð½Ðµ Ð²Ñ‹Ð±Ñ€Ð°Ð½Ð¾! " 
+				 << "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ñ‚Ð¸Ð¿ Ð¼ÐµÑ‚Ð°Ð»Ð»Ð° Ð¸Ð· ÑÐ¿Ð¸ÑÐºÐ°!\n";
 		}
 	}
 	return t;
 }
 
-double getDensity(int metalType) //ñþäà (òî ÷òî â ñêîáêàõ) âû âîâçðàùàåì çíà÷åíèå ôóíêöèè metalType, òàê?
+double getDensity(int metalType) //ÑÑŽÐ´Ð° (Ñ‚Ð¾ Ñ‡Ñ‚Ð¾ Ð² ÑÐºÐ¾Ð±ÐºÐ°Ñ…) Ð²Ñ‹ Ð²Ð¾Ð²Ð·Ñ€Ð°Ñ‰Ð°ÐµÐ¼ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸ metalType, Ñ‚Ð°Ðº?
 {
 	double density;
 
@@ -69,34 +68,34 @@ double getDensity(int metalType) //ñþäà (òî ÷òî â ñêîáêàõ) âû âîâçðàùàåì çíà÷åíè
 		break;
 
 	default:
-		cout << "Îøèáêà! Âûáåðèòå òèï ìåòàëëà èç ñïèñêà\n";
+		cout << "ÐžÑˆÐ¸Ð±ÐºÐ°! Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ñ‚Ð¸Ð¿ Ð¼ÐµÑ‚Ð°Ð»Ð»Ð° Ð¸Ð· ÑÐ¿Ð¸ÑÐºÐ°\n";
 	}
 	return density;
 }
 
-double rectangleCalc(double density) //à òóò âûçûâàåì çíà÷åíèå ïëîòíîñòè, â ïàìÿòè æå îíà ó íàñ óæå åñòü? 
+double rectangleCalc(double density) //Ð° Ñ‚ÑƒÑ‚ Ð²Ñ‹Ð·Ñ‹Ð²Ð°ÐµÐ¼ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð¿Ð»Ð¾Ñ‚Ð½Ð¾ÑÑ‚Ð¸, Ð² Ð¿Ð°Ð¼ÑÑ‚Ð¸ Ð¶Ðµ Ð¾Ð½Ð° Ñƒ Ð½Ð°Ñ ÑƒÐ¶Ðµ ÐµÑÑ‚ÑŒ? 
 {
 		double thick, lenght, wide, count, divide, weight;
 		divide = 1000000;
 
-		cout << "Êàëüêóëÿòîð Ìåòàëëà\n\n";
+		cout << "ÐšÐ°Ð»ÑŒÐºÑƒÐ»ÑÑ‚Ð¾Ñ€ ÐœÐµÑ‚Ð°Ð»Ð»Ð°\n\n";
 
-		cout << "Ââåäèòå ðàçìåðû â ìì: \n\n";
-		cout << "Òîëùèíà : ";
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ€Ð°Ð·Ð¼ÐµÑ€Ñ‹ Ð² Ð¼Ð¼: \n\n";
+		cout << "Ð¢Ð¾Ð»Ñ‰Ð¸Ð½Ð° : ";
 		cin >> thick;
-		cout << "Äëèíà: ";
+		cout << "Ð”Ð»Ð¸Ð½Ð°: ";
 		cin >> lenght;
-		cout << "Øèðèíà: ";
+		cout << "Ð¨Ð¸Ñ€Ð¸Ð½Ð°: ";
 		cin >> wide;
-		cout << "Êîëè÷åñòâî: ";
+		cout << "ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾: ";
 		cin >> count;
 		cout << endl;
 
 		weight = (thick * lenght * wide * density * count) / divide;
 
-		cout << "ÈÒÎÃ: \n";
-		cout << weight << " êã \n"
-			<< weight / 1000 << "òîíí\n\n";
+		cout << "Ð˜Ð¢ÐžÐ“: \n";
+		cout << weight << " ÐºÐ³ \n"
+			<< weight / 1000 << "Ñ‚Ð¾Ð½Ð½\n\n";
 
 		return weight;
 }
@@ -107,15 +106,15 @@ double roundCalc(double density)
 		divide = 1000000;
 		pi = 3.14159265358;
 
-		cout << "Êàëüêóëÿòîð Ìåòàëëà\n\n";
+		cout << "ÐšÐ°Ð»ÑŒÐºÑƒÐ»ÑÑ‚Ð¾Ñ€ ÐœÐµÑ‚Ð°Ð»Ð»Ð°\n\n";
 
-		cout << "Ââåäèòå ðàçìåðû â ìèëëèìåòðàõ:\n\n";
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ€Ð°Ð·Ð¼ÐµÑ€Ñ‹ Ð² Ð¼Ð¸Ð»Ð»Ð¸Ð¼ÐµÑ‚Ñ€Ð°Ñ…:\n\n";
 
-		cout << "Òîëùèíà: ";
+		cout << "Ð¢Ð¾Ð»Ñ‰Ð¸Ð½Ð°: ";
 		cin >> thick;
-		cout << "Äèàìåòð: ";
+		cout << "Ð”Ð¸Ð°Ð¼ÐµÑ‚Ñ€: ";
 		cin >> diameter;
-		cout << "Êîëè÷åñòâî: ";
+		cout << "ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾: ";
 		cin >> count;
 		cout << endl;
 
@@ -123,9 +122,9 @@ double roundCalc(double density)
 		square = pow(radius, 2);
 		weight = density * (thick * square * pi) / divide;
 
-		cout << "ÈÒÎÃ: \n"
-			<< weight << "êã \n"
-			<< weight / 1000 << "òîíí\n\n";
+		cout << "Ð˜Ð¢ÐžÐ“: \n"
+			<< weight << "ÐºÐ³ \n"
+			<< weight / 1000 << "Ñ‚Ð¾Ð½Ð½\n\n";
 
 		return weight;
 }
@@ -134,19 +133,19 @@ double perimeterCalc(double density)
 {
 	double perimeter, thick, weight;
 
-	cout << "Êàëüêóëÿòîð Ìåòàëëà\n\n";
+	cout << "ÐšÐ°Ð»ÑŒÐºÑƒÐ»ÑÑ‚Ð¾Ñ€ ÐœÐµÑ‚Ð°Ð»Ð»Ð°\n\n";
 
-	cout << "Ââåäèòå ðàçìåðû â ìèëëèìåòðàõ:\n\n";
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ€Ð°Ð·Ð¼ÐµÑ€Ñ‹ Ð² Ð¼Ð¸Ð»Ð»Ð¸Ð¼ÐµÑ‚Ñ€Ð°Ñ…:\n\n";
 
-	cout << "Òîëùèíà: ";
+	cout << "Ð¢Ð¾Ð»Ñ‰Ð¸Ð½Ð°: ";
 	cin >> thick;
 
-	cout << "Ïåðèìåòð: ";
+	cout << "ÐŸÐµÑ€Ð¸Ð¼ÐµÑ‚Ñ€: ";
 	cin >> perimeter;
 	cout << endl;
 
 	weight = ((pow(2, perimeter)) / 4) * thick * density / 1000000;
-	cout << weight << " êã \n";
+	cout << weight << " ÐºÐ³ \n";
 
 	return weight;
 }
@@ -154,11 +153,11 @@ double perimeterCalc(double density)
 int inputForm()
 {
 	bool formsel = true;
-	cout << "Âûáåðèòå ôîðìó ëèñòà: \n"
-		<< "1. Ïðÿìîóãîëüíèê \n"
-		<< "2. Êðóã \n"
-		<< "3. Ëèñò íåïðàâèëüíîé ôîðìû (ââîä ïåðèìåòðà) \n"
-		<< "Âàø âûáîð: ";
+	cout << "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ñ„Ð¾Ñ€Ð¼Ñƒ Ð»Ð¸ÑÑ‚Ð°: \n"
+		<< "1. ÐŸÑ€ÑÐ¼Ð¾ÑƒÐ³Ð¾Ð»ÑŒÐ½Ð¸Ðº \n"
+		<< "2. ÐšÑ€ÑƒÐ³ \n"
+		<< "3. Ð›Ð¸ÑÑ‚ Ð½ÐµÐ¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¾Ð¹ Ñ„Ð¾Ñ€Ð¼Ñ‹ (Ð²Ð²Ð¾Ð´ Ð¿ÐµÑ€Ð¸Ð¼ÐµÑ‚Ñ€Ð°) \n"
+		<< "Ð’Ð°Ñˆ Ð²Ñ‹Ð±Ð¾Ñ€: ";
 	int f;
 	int maxMenuIndex = 3;
 
@@ -173,12 +172,12 @@ int inputForm()
 		}
 		else
 		{
-			cout << "Íè÷åãî íå âûáðàíî\n";
+			cout << "ÐÐ¸Ñ‡ÐµÐ³Ð¾ Ð½Ðµ Ð²Ñ‹Ð±Ñ€Ð°Ð½Ð¾\n";
 		}
 
 		
 	}
-	system("CLS");
+	
 	return f;
 }
 
@@ -186,27 +185,27 @@ double metalPrice(double weight)
 {
 	double mprice, kgprice;
 
-	cout << "Ââåäèòå öåíó çà êã ìåòàëëà: ";
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ†ÐµÐ½Ñƒ Ð·Ð° ÐºÐ³ Ð¼ÐµÑ‚Ð°Ð»Ð»Ð°: ";
 	cin >> kgprice;
 
 	mprice = weight * kgprice;
 
 	if (weight <= 100)
 	{
-		cout << pow (mprice, 3) << " ðóá. | "
-			 << pow (mprice, 3) / 1000000 << "ìëí. ðóá. \n";
+		cout << pow (mprice, 3) << " Ñ€ÑƒÐ±. | "
+			 << pow (mprice, 3) / 1000000 << "Ð¼Ð»Ð½. Ñ€ÑƒÐ±. \n";
 	}
 	
 	if (weight <= 500)
 	{
-		cout << pow(mprice, 2) << " ðóá. | "
-			 << pow(mprice, 2) / 1000000 << "ìëí. ðóá. \n";
+		cout << pow(mprice, 2) << " Ñ€ÑƒÐ±. | "
+			 << pow(mprice, 2) / 1000000 << "Ð¼Ð»Ð½. Ñ€ÑƒÐ±. \n";
 	}
 
 	if (weight >= 1000)
 	{
-		cout << mprice << " ðóá. | "
-			 << mprice / 1000000 << "ìëí. ðóá. \n";
+		cout << mprice << " Ñ€ÑƒÐ±. | "
+			 << mprice / 1000000 << "Ð¼Ð»Ð½. Ñ€ÑƒÐ±. \n";
 	}
 
 	return mprice;
@@ -217,17 +216,17 @@ double cutPrice()
 {
 	double h, min, sec, totalmin, cutprice;
 
-	cout << "\nÂâåäèòå âðåìÿ ðåçêè: \n";
-	cout << "×àñîâ: ";
+	cout << "\nÐ’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð²Ñ€ÐµÐ¼Ñ Ñ€ÐµÐ·ÐºÐ¸: \n";
+	cout << "Ð§Ð°ÑÐ¾Ð²: ";
 	cin >> h;
-	cout << "Ìèíóò: ";
+	cout << "ÐœÐ¸Ð½ÑƒÑ‚: ";
 	cin >> min;
-	cout << "Ñåêóíä: ";
+	cout << "Ð¡ÐµÐºÑƒÐ½Ð´: ";
 	cin >> sec;
 
 	totalmin = (h * 60) + min + (sec / 60);
 	cutprice = (totalmin / 0.85) * 130;
-	cout << "\nÑòîèìîñòü ðåçêè: " << cutprice << " ðóá.";
+	cout << "\nÐ¡Ñ‚Ð¾Ð¸Ð¼Ð¾ÑÑ‚ÑŒ Ñ€ÐµÐ·ÐºÐ¸: " << cutprice << " Ñ€ÑƒÐ±.";
 	return cutprice;
 }
 
@@ -236,8 +235,8 @@ double totalPrice(double mprice, double cutprice)
 	double total;
 	total = mprice + cutprice;
 
-	cout << "\nÈòîã: \n"
-		<< total << " ðóá | " << total / 1000000 << " ìëí. ðóá. \n";
+	cout << "\nÐ˜Ñ‚Ð¾Ð³: \n"
+		<< total << " Ñ€ÑƒÐ± | " << total / 1000000 << " Ð¼Ð»Ð½. Ñ€ÑƒÐ±. \n";
 
 	return total;
 }
@@ -247,9 +246,9 @@ int endScreen()
 	int end;
 
 	cout << "\n\n--\n";
-	cout << "1. Ïîâòîðèòü\n"
-		 << "2. Âûéòè\n"
-		 << "Âàø âûáîð: ";
+	cout << "1. ÐŸÐ¾Ð²Ñ‚Ð¾Ñ€Ð¸Ñ‚ÑŒ\n"
+		 << "2. Ð’Ñ‹Ð¹Ñ‚Ð¸\n"
+		 << "Ð’Ð°Ñˆ Ð²Ñ‹Ð±Ð¾Ñ€: ";
 	cin >> end;
 
 	return end;
@@ -283,7 +282,7 @@ int main()
 			break;
 
 		default:
-			cout << "Îøèáêà! Âûáåðèòå ôîðìó ìåòàëëà èç ñïèñêà!" << endl;
+			cout << "ÐžÑˆÐ¸Ð±ÐºÐ°! Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ñ„Ð¾Ñ€Ð¼Ñƒ Ð¼ÐµÑ‚Ð°Ð»Ð»Ð° Ð¸Ð· ÑÐ¿Ð¸ÑÐºÐ°!" << endl;
 			break;
 		}
 
