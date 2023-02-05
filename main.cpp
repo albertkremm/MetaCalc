@@ -295,8 +295,10 @@ int main()
 		{
 		case 1:
 			work = true;
+			break;
 		case 2:
 			work = false;
+			break;
 		}
 	}
 }
