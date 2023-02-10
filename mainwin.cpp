@@ -5,6 +5,7 @@ using namespace std;
 
 void welcome()
 {
+	system ("CLS");
 	cout << "Калькулятор Металла\n\n";
 }
 
@@ -41,7 +42,7 @@ int metalType()
 	return t;
 }
 
-double getDensity(int metalType) //сюда (то что в скобках) вы вовзращаем значение функции metalType, так?
+double getDensity(int metalType)
 {
 	double density;
 
@@ -73,10 +74,12 @@ double getDensity(int metalType) //сюда (то что в скобках) вы
 	return density;
 }
 
-double rectangleCalc(double density) //а тут вызываем значение плотности, в памяти же она у нас уже есть? 
+double rectangleCalc(double density)
 {
 		double thick, lenght, wide, count, divide, weight;
 		divide = 1000000;
+		
+		system ("CLS");
 
 		cout << "Калькулятор Металла\n\n";
 
@@ -105,9 +108,10 @@ double roundCalc(double density)
 		double thick, radius, diameter, count, divide, weight, pi, square;
 		divide = 1000000;
 		pi = 3.14159265358;
+		
+		system ("CLS");
 
 		cout << "Калькулятор Металла\n\n";
-
 		cout << "Введите размеры в миллиметрах:\n\n";
 
 		cout << "Толщина: ";
@@ -133,6 +137,7 @@ double perimeterCalc(double density)
 {
 	double perimeter, thick, weight;
 
+	system ("CLS");
 	cout << "Калькулятор Металла\n\n";
 
 	cout << "Введите размеры в миллиметрах:\n\n";
@@ -291,6 +296,7 @@ int main()
 		double total = totalPrice(mprice, cprice);
 
 		int end = endScreen();
+		
 		switch (end)
 		{
 		case 1:
