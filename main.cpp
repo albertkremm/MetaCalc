@@ -1,11 +1,12 @@
 #include <iostream>
 #include <math.h>
+#include "clearscreen.h"
 
 using namespace std;
 
 void welcome()
 {
-	system ("CLS");
+	clearScreen();
 	cout << "Калькулятор Металла\n\n";
 }
 
@@ -79,7 +80,7 @@ double rectangleCalc(double density)
 		double thick, lenght, wide, count, divide, weight;
 		divide = 1000000;
 		
-		system ("CLS");
+		clearScreen();
 
 		cout << "Калькулятор Металла\n\n";
 
@@ -109,7 +110,7 @@ double roundCalc(double density)
 		divide = 1000000;
 		pi = 3.14159265358;
 		
-		system ("CLS");
+		clearScreen();
 
 		cout << "Калькулятор Металла\n\n";
 		cout << "Введите размеры в миллиметрах:\n\n";
@@ -124,7 +125,7 @@ double roundCalc(double density)
 
 		radius = diameter / 2;
 		square = pow(radius, 2);
-		weight = density * (thick * square * pi) / divide;
+		weight = density * (count * thick * square * pi) / divide;
 
 		cout << "ИТОГ: \n"
 			<< weight << "кг \n"
@@ -137,7 +138,7 @@ double perimeterCalc(double density)
 {
 	double perimeter, thick, weight;
 
-	system ("CLS");
+	clearScreen();
 	cout << "Калькулятор Металла\n\n";
 
 	cout << "Введите размеры в миллиметрах:\n\n";
@@ -188,27 +189,30 @@ int inputForm()
 
 double metalPrice(double weight)
 {
-	double mprice, kgprice;
+	 double mprice, kgprice;
 
 	cout << "Введите цену за кг металла: ";
 	cin >> kgprice;
 
-	mprice = weight * kgprice;
+	if (weight < 100 && weight < 500)
+	{
+		mprice = weight * kgprice * 3;
 
-	if (weight <= 100)
-	{
-		cout << pow (mprice, 3) << " руб. | "
-			 << pow (mprice, 3) / 1000000 << "млн. руб. \n";
+		cout << mprice << " руб. | "
+			 << mprice / 1000000 << "млн. руб. \n";
 	}
-	
-	if (weight <= 500)
+
+	if (weight >= 501 && weight < 1000)
 	{
-		cout << pow(mprice, 2) << " руб. | "
-			 << pow(mprice, 2) / 1000000 << "млн. руб. \n";
+		mprice = weight * kgprice * 2;
+
+		cout << mprice << " руб. | "
+			 << mprice / 1000000 << "млн. руб. \n";
 	}
 
 	if (weight >= 1000)
 	{
+		mprice = weight * kgprice;
 		cout << mprice << " руб. | "
 			 << mprice / 1000000 << "млн. руб. \n";
 	}
