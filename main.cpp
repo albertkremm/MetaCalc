@@ -65,7 +65,9 @@ double getDensity(int metalType)
 		break;
 
 	case 5:
+		cout << "Введите значение плотности: ";
 		cin >> density;
+		cout << endl;
 		break;
 
 	default:
@@ -178,7 +180,7 @@ double metalPrice(double weight)
 			 << mprice / 1000000 << "млн. руб. \n";
 	}
 
-	if (weight >= 501 && weight < 1000)
+	if (weight >= 500 && weight < 1000)
 	{
 		mprice = weight * kgprice * 2;
 
