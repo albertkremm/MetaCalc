@@ -6,7 +6,9 @@ using namespace std;
 void welcome()
 {
 	clearScreen();
-	cout << "Калькулятор Металла\n\n";
+	cout << "Калькулятор Металла\n";
+	cout << "Albert Kremm, 05.03.2023\n";
+	cout << "------------------------\n\n";
 }
 
 int metalType()
@@ -18,7 +20,8 @@ int metalType()
 		<< "2. Нержавеющая сталь \n"
 		<< "3. Алюминий\n"
 		<< "4. Черная сталь (по AJAN)\n"
-		<< "5. Ввести значение вручную.\n\n"
+		<< "5. Ввести значение вручную.\n"
+		<< "-----------\n"
 		<< "Ваш выбор: ";
 
 	int t;
@@ -80,10 +83,8 @@ double rectangleCalc(double density)
 {
 		double thick, lenght, wide, count, divide, weight;
 		divide = 1000000;
-		
-		clearScreen();
 
-		cout << "Калькулятор Металла\n\n";
+		welcome();
 
 		cout << "Введите размеры в мм: \n\n";
 		cout << "Толщина : ";
@@ -110,10 +111,9 @@ double roundCalc(double density)
 		double thick, radius, diameter, count, divide, weight, pi, square;
 		divide = 1000000;
 		pi = 3.14159265358;
-		
-		clearScreen();
 
-		cout << "Калькулятор Металла\n\n";
+		welcome();
+
 		cout << "Введите размеры в миллиметрах:\n\n";
 
 		cout << "Толщина: ";
@@ -138,9 +138,11 @@ double roundCalc(double density)
 int inputForm()
 {
 	bool formsel = true;
+	welcome();
 	cout << "Выберите форму листа: \n"
 		<< "1. Прямоугольник \n"
 		<< "2. Круг \n"
+		<< "----------\n"
 		<< "Ваш выбор: ";
 	int f;
 	int maxMenuIndex = 2;
