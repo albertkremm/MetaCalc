@@ -7,16 +7,16 @@ void welcome()
 {
 	clearScreen();
 	cout << "Калькулятор Металла\n";
-	cout << "Альберт Кремм, 2022 - 2023\n";
+	cout << "Альберт Кремм, 2023\n\n";
 }
 
 int metalType()
 {
 	bool typesel = true;
 
-	cout << "_______________\n";
-	cout << "ВЫБОР МАТЕРИАЛА\n";
 	cout << "---------------\n";
+	cout << "ВЫБОР МАТЕРИАЛА\n";
+	cout << "---------------\n\n";
 
 	cout << "1. Черная сталь \n"
 		<< "2. Нержавеющая сталь \n"
@@ -88,9 +88,9 @@ double rectangleCalc(double density)
 
 	welcome();
 
-	cout << "_____________\n";
-	cout << "ПРЯМОУГОЛЬНИК\n";
 	cout << "-------------\n";
+	cout << "ПРЯМОУГОЛЬНИК\n";
+	cout << "-------------\n\n";
 
 	cout << "Толщина: ";
 	cin >> thick;
@@ -104,20 +104,39 @@ double rectangleCalc(double density)
 
 	weight = (thick * lenght * wide * density * count) / divide;
 
+
+	if (weight < 1000)
+	{
 	cout << "ИТОГ: \n";
-	cout << weight << " кг \n"
-	<< weight / 1000 << "тонн\n";
+	cout << weight << " кг \n";
+	}
+
+	if (weight >= 1000)
+	{
+	cout << "ИТОГ: \n";
+	cout << weight / 1000 << " тонн \n";
+	}
 
 	welcome();
 
-	cout << "__________________________\n";
+	cout << "--------------------------\n";
 	cout << "РАСЧЕТ СТОИМОСТИ МАТЕРИАЛА\n";
 	cout << thick << "x";
 	cout << lenght << "x"; 
 	cout << wide << "мм - "; 
 	cout << count << "шт - "; 
-	cout << weight << "кг \n";
-	cout << "--------------------------\n";
+
+	if (weight < 1000)
+	{
+	cout << weight << "кг\n";
+	}
+
+	if (weight > 1000)
+	{
+	cout << weight / 1000 << "тонн \n"; 
+	}
+
+	cout << "--------------------------\n\n";
 	return weight;
 }
 
@@ -129,9 +148,9 @@ double roundCalc(double density)
 
 	welcome();
 
-	cout << "____";
+	cout << "----";
 	cout << "\nКРУГ\n";
-	cout << "----\n";
+	cout << "----\n\n";
 
 	cout << "Толщина: ";
 	cin >> thick;
@@ -147,19 +166,38 @@ double roundCalc(double density)
 	square = pow(radius, 2);
 	weight = density * (count * thick * square * pi) / divide;
 
+	if (weight < 1000)
+	{
+	cout << weight << "кг\n";
+	}
+
+	if (weight > 1000)
+	{
+	cout << weight / 1000 << "тонн \n"; 
+	}
 	cout << "ИТОГ: \n"
 	<< weight << "кг \n" 
 	<< weight / 1000 << "тонн\n";
 		
 	welcome();
 
-	cout << "__________________________\n";
+	cout << "--------------------------\n";
 	cout << "РАСЧЕТ СТОИМОСТИ МАТЕРИАЛА\n";
 	cout << thick << " мм, D = "
 	<< diameter << " мм, "
-	<< count << " шт  - "
-	<< weight << " кг \n";
-	cout << "--------------------------\n";
+	<< count << " шт  - ";
+
+	if (weight < 1000)
+	{
+	cout << weight << "кг\n";
+	}
+
+	if (weight > 1000)
+	{
+	cout << weight / 1000 << "тонн \n"; 
+	}
+
+	cout << "--------------------------\n\n";
 
 	return weight;
 }
@@ -168,9 +206,9 @@ int inputForm()
 {
 	welcome();
 	bool formsel = true;
-	cout << "_____________________\n"
+	cout << "---------------------\n"
 	<< "ВЫБОР ФОРМЫ МАТЕРИАЛА\n"
-	<< "---------------------\n";  
+	<< "---------------------\n\n";  
 
 	cout << "1. Прямоугольник \n"
 		<< "2. Круг \n"
@@ -241,9 +279,9 @@ double cutPrice()
 {
 	double h, min, sec, totalmin, cutprice;
 
-	cout << "______________________";
+	cout << "----------------------";
 	cout << "\nРАСЧЕТ СТОИМОСТИ РЕЗКИ\n";
-	cout << "----------------------\n"; 
+	cout << "----------------------\n\n"; 
 	cout << "Введите время резки: \n";
 	cout << "Часов: ";
 	cin >> h;
@@ -257,13 +295,13 @@ double cutPrice()
 	
 	if (cutprice < 1000000)
 	{
-		cout << "\nСтоимость резки: " << cutprice << " руб.\n";
+		cout << "\nСтоимость резки: " << cutprice << " руб.\n\n";
 	}
 
 	if (cutprice > 1000000)
 	{
 		cout << "\nСтоимость резки: " 
-		<< cutprice / 1000000 << "млн. руб\n";
+		<< cutprice / 1000000 << "млн. руб\n\n";
 	}
 	return cutprice;
 }
@@ -273,7 +311,7 @@ double totalPrice(double mprice, double cutprice)
 	double total;
 	total = mprice + cutprice;
 
-	cout << "______________________________________\n";
+	cout << "-------------------------------------\n";
 	cout << "ИТОГОВАЯ СТОИМОСТЬ ЗАКАЗА: ";
 
 	if (total < 1000000)
@@ -286,7 +324,7 @@ double totalPrice(double mprice, double cutprice)
 		cout << total / 1000000 << " млн. руб. \n";
 	}
 
-	cout << "--------------------------------------\n";
+	cout << "--------------------------------------\n\n";
 	return total;
 }
 
@@ -345,6 +383,8 @@ int main()
 		case 2:
 			work = false;
 			break;
+		default:
+			cout << "Ну ты че...\n";
 		}
 	}
 }
